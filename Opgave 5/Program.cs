@@ -2,7 +2,7 @@
 using System.Xml.Serialization;
 using System.Xml.Linq;
 
-/*
+
 #region xml to query
 (
     //Load the xml from web service and get the items
@@ -11,19 +11,19 @@ using System.Xml.Linq;
 
         //Select the items to an anonymous object
     select new
-    {
-        Title = element.Element("title").Value,
-        Link = element.Element("link").Value,
-        Published = element.Element("pubDate").Value
-    }
+           {
+               Title = element.Element("title").Value,
+               Link = element.Element("link").Value,
+               Published = element.Element("pubDate").Value
+           }
 )
-     //Make it a list so the query runs and it can be extended with .ForEach because it is now IEnumerable
-     .ToList()
-     //For every element write it to the console in an orderly fashion
-     .ForEach(elmnt => { Console.WriteLine($"{elmnt.Published}: {elmnt.Title} \n \t {elmnt.Link}\n"); });
+    //Make it a list so the query runs and it can be extended with .ForEach because it is now IEnumerable
+    .ToList()
+    //For every element write it to the console in an orderly fashion
+    .ForEach(elmnt => { Console.WriteLine($"{elmnt.Published}: {elmnt.Title} \n \t {elmnt.Link}\n"); });
 #endregion
 
-*/
+
 
 #region Dezz - Dezzerialize, Ha goteeem!
 XmlSerializer XMLSeri = new XmlSerializer(typeof(Rss));
