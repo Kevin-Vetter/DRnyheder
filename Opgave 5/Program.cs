@@ -2,7 +2,7 @@
 using System.Xml.Serialization;
 using System.Xml.Linq;
 
-
+/*
 #region xml to query
 (
     //Load the xml from web service and get the items
@@ -23,23 +23,14 @@ using System.Xml.Linq;
      .ForEach(elmnt => { Console.WriteLine($"{elmnt.Published}: {elmnt.Title} \n \t {elmnt.Link}\n"); });
 #endregion
 
-
-#region like radion
-var document = XDocument.Load("https://www.dr.dk/nyheder/service/feeds/senestenyt");
-
-document.Element("rss").Element("channel").Elements("item").ForEa;
-
-
-
-string title = itmes.Element("title").Value;
-string link = itmes.Element("link").Value;
-string published = itmes.Element("pubDate").Value;
-
-#endregion
-
+*/
 
 #region Dezz - Dezzerialize, Ha goteeem!
+XmlSerializer XMLSeri = new XmlSerializer(typeof(Rss));
 
+Rss reader = (Rss)XMLSeri.Deserialize(XmlReader.Create("https://www.dr.dk/nyheder/service/feeds/senestenyt"));
+
+reader.Channel.Item.ForEach(i => Console.WriteLine($"{i.PubDate}: {i.Title} \n \t {i.Link2}\n"));
 
 
 [XmlRoot(ElementName = "link", Namespace = "http://www.w3.org/2005/Atom")]
